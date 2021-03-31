@@ -1,11 +1,43 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1">
     <title>Tez Aqsha</title>
+    <meta name="yandex-verification" content="01f70115829d5743" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
+        ym(70753132, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS7ZZQ05DV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HS7ZZQ05DV');
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/70753132" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <meta name="title" content="Микрофинансовая компания TEZ AQSHA">
+    <meta name="description" content="Микрофинансовая компания TEZ AQSHA предлагает своим клиентам быстрое рассмотрение заявок и выдачу денег">
+    <meta name="keywords" content="Микрофинансовая компания в Казахстане, TEZ AQSHA, выдача денег в Казахстане">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Russian">
     <!-- Favicon -->
 
     <link rel="icon" href="./favicon.png" type="image/x-icon">
@@ -14,17 +46,16 @@
     <!-- Style and Bootstrap -->
 
     <!-- Slick -->
-
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="./public/css/style.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="./src/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="./src/slick/slick-theme.css"/>
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 
 <body>
@@ -33,7 +64,7 @@
 <header>
     <div class="container header">
         <img src="./src/img/logo.png" alt="logo" class="logo">
-        <button class="button-take" id="button-take">Взять заём</button>
+        <button class="button-take" id="button-take">Вход в личный кабинет</button>
         <div id="modal-wrap" style="display: none">
             <div id="modal-auth-select">
                 <div class="wrap">
@@ -56,7 +87,7 @@
                 <div class="wrap">
                     <h4>Логин и пароль</h4>
                     <label for="login" style="width: 100%;">Введите данные</label>
-                    <input type="text" placeholder="Имя пользователя" id="login">
+                    <input type="text" placeholder="Номер телефона" id="login">
                     <input type="password" placeholder="Пароль" id="password">
                     <div class="remember">
                         <div class="rem">
@@ -117,6 +148,12 @@
                     <h4>Проверьте введенные данные или обратитесь в поддержку</h4>
                 </div>
             </div>
+            <div id="modal-calc-fail">
+                <div class="wrap">
+                    <img src="src/img/warning.png" alt="">
+                    <h4 style="margin-top: 20px;">Извините, калькулятор временно недоступен</h4>
+                </div>
+            </div>
             <div id="modal-auth-error">
                 <div class="wrap">
                     <img src="src/img/warning.png" alt="">
@@ -129,6 +166,36 @@
                     <h4>Смс была отправлена на ваш номер. Если вы не получили смс, пожалуйста, ещё раз проверьте введённые данные.</h4>
                 </div>
             </div>
+            <div id="modal-feedback">
+                <div class="wrap">
+                    <h4>Оставьте свой отзыв</h4>
+                    <label for="review-name" style="width: 100%;">Ваше имя (обязательно)</label>
+                    <input type="text" placeholder="Ваше имя" id="review-name" required>
+                    <label for="review-city" style="width: 100%;">Ваш город (обязательно)</label>
+                    <select name="review-city" id="review-city" required>
+                        <option disabled>Выберите город</option>
+                    </select>
+                    <label for="review-text" style="width: 100%;">Ваш отзыв (обязательно)</label>
+                    <textarea
+                            name="review-text"
+                            id="review-text"
+                            cols="30"
+                            rows="50" required></textarea>
+                    <button id="modal-sent-review" class="red-button">Отправить</button>
+                </div>
+            </div>
+            <div id="modal-review-win">
+                <div class="wrap">
+                    <img src="src/img/sms.png" alt="">
+                    <h4>Ваш отзыв отправлен! Спасибо!</h4>
+                </div>
+            </div>
+            <div id="modal-review-fail">
+                <div class="wrap">
+                    <img src="src/img/warning.png" alt="">
+                    <h4>Проверьте, все ли обязательные поля заполнены. Либо обратитесь в поддержку.</h4>
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -137,7 +204,7 @@
 <!-- MAIN SECTION -->
 
 <main>
-    <div class="loan container">
+    <div class="loan container" id="calcul">
 
         <!-- SLIDERS -->
 
@@ -145,37 +212,39 @@
 
             <!-- FIRST SLIDER -->
 
-            <div class="loan__item  condition-sliders col-12">
-                <div class="row">
-                    <div class="condition-sliders__text col-6">
+            <div class="loan__item  condition-sliders col-12 my570">
+                <div class="row my570" style="justify-content: space-between;">
+                    <div class="condition-sliders__text">
                         СУММА ЗАЙМА
                     </div>
-                    <div class="condition-sliders__value col-6">
-                        100 000 тенге
-                    </div>
+                    <p class="condition-sliders__value">
+                        <span id="moneyVal">1000</span> тенге
+                    </p>
                 </div>
-                <div class="row">
-                    <button class="condition-sliders__button-minus"> - </button>
-                    <input type="range" class="condition-sliders__input" min="1" max="100000" step="500" value="100000">
-                    <button class="condition-sliders__button-plus"> + </button>
+                <div class="row my570">
+                    <div class="condition-sliders__button-minus" id="money_slider_minus"> - </div>
+                    <div class="condition-sliders__input" id="money_slider"></div>
+                    <!-- <input type="range" class="condition-sliders__input" id="money_slider" min="500" max="100000" step="500" value="500"> -->
+                    <div class="condition-sliders__button-plus" id="money_slider_plus"> + </div>
                 </div>
             </div>
 
             <!-- SECOND SLIDER -->
 
-            <div class="loan__item loan__item-down condition-sliders col-12">
-                <div class="row">
-                    <div class="condition-sliders__text col-6">
+            <div class="loan__item loan__item-down condition-sliders col-12 my570">
+                <div class="row my570" style="justify-content: space-between;">
+                    <div class="condition-sliders__text">
                         СРОК ЗАЙМА
                     </div>
-                    <div class="condition-sliders__value col-6">
-                        30 дней
-                    </div>
+                    <p class="condition-sliders__value">
+                        <span id="periodVal">15 дней</span>
+                    </p>
                 </div>
-                <div class="row">
-                    <button class="condition-sliders__button-minus"> - </button>
-                    <input type="range" class="condition-sliders__input" min='1' max="60">
-                    <button class="condition-sliders__button-plus"> + </button>
+                <div class="row my570">
+                    <div class="condition-sliders__button-minus" id="period_slider_minus"> - </div>
+                    <div class="condition-sliders__input" id="period_slider"></div>
+                    <!--   <input type="range" class="condition-sliders__input" id="period_slider" min='1' max="60" value="1"> -->
+                    <div class="condition-sliders__button-plus" id="period_slider_plus"> + </div>
                 </div>
             </div>
 
@@ -184,9 +253,9 @@
 
         <!-- CALCULATIONS -->
 
-        <div class="loan__item calculations row col-xl-10 offset-xl-1 col-12">
-            <p class="calculations__text">Возвращаете: <strong>125 000 тнг.</strong> </p>
-            <p class="calculations__text calculations__text-data">Дата возврата: <strong>26 сентября 2020, среда</strong></p>
+        <div class="loan__item calculations row col-xl-12" style="max-width: 600px">
+            <p class="calculations__text">Возвращаете: <span id="totalSum">125 000</span> тнг.</p>
+            <p class="calculations__text calculations__text-data">Дата возврата: <span id="returnDate">26 сентября 2020, среда</span></p>
             <button class="calculations__button-take-money">Получить деньги</button>
         </div>
 
@@ -217,7 +286,7 @@
 <!-- ABOUT -->
 
 <div class="container">
-    <div class="about">
+    <div class="about" id="about">
 
         <!-- ABOUTS -->
 
@@ -226,98 +295,25 @@
         </div>
         <div class="about__slider carousel">
 
-            <div class="carousel__item">
-
-                <div class="about__marks-up"></div>
-                <div class="about__marks-down"></div>
-
-                <img src="./src/img/about/photo.png" alt="Photo">
-                <div class="carousel__text">
-                    <p>
-                        <strong>Индира</strong>
-                        г.Алматы
-                    </p>
-                    <span>Сотрудники Тез Акша обслуживают вежливо и быстро. Оформила займ на
-                            точке за 10 минут и пошла
-                            с наличными домой!</span>
-                </div>
-            </div>
-
-            <div class="carousel__item">
-
-                <div class="about__marks-up"></div>
-                <div class="about__marks-down"></div>
-
-                <img src="./src/img/about/photo.png" alt="Photo">
-                <div class="carousel__text">
-                    <p>
-                        <strong>Индира</strong>
-                        г.Алматы
-                    </p>
-                    <span>Сотрудники Тез Акша обслуживают вежливо и быстро. Оформила займ на
-                        точке за 10 минут и пошла
-                        с наличными домой!</span>
-                </div>
-            </div>
-
-            <div class="carousel__item">
-
-                <div class="about__marks-up"></div>
-                <div class="about__marks-down"></div>
-
-                <img src="./src/img/about/photo.png" alt="Photo">
-                <div class="carousel__text">
-                    <p>
-                        <strong>Индира</strong>
-                        г.Алматы
-                    </p>
-                    <span>Сотрудники Тез Акша обслуживают вежливо и быстро. Оформила займ на
-                    точке за 10 минут и пошла
-                    с наличными домой!</span>
-                </div>
-            </div>
-
-            <div class="carousel__item">
-
-                <div class="about__marks-up"></div>
-                <div class="about__marks-down"></div>
-
-                <img src="./src/img/about/photo.png" alt="Photo">
-                <div class="carousel__text">
-                    <p>
-                        <strong>Индира</strong>
-                        г.Алматы
-                    </p>
-                    <span>Сотрудники Тез Акша обслуживают вежливо и быстро. Оформила займ на
-                точке за 10 минут и пошла
-                с наличными домой!</span>
-                </div>
-            </div>
-
-            <div class="carousel__item">
-
-                <div class="about__marks-up"></div>
-                <div class="about__marks-down"></div>
-
-                <img src="./src/img/about/photo.png" alt="Photo">
-                <div class="carousel__text">
-                    <p>
-                        <strong>Индира</strong>
-                        г.Алматы
-                    </p>
-                    <span>Сотрудники Тез Акша обслуживают вежливо и быстро. Оформила займ на
-            точке за 10 минут и пошла
-            с наличными домой!</span>
-                </div>
-            </div>
         </div>
+        <script>
+            /*
+                        $.get('http://test.tezlombard.kz/api/comments/commentList').then((data) => {
+                            for (let user of data) {
+                                if (user.isPublic) {
+                                    $('.about__slider').append('<div class="carousel__item"><div class="about__marks-up"></div><div class="about__marks-down"></div><img src="' + user.avatar + '" alt="Photo"><div class="carousel__text"><p><strong>' + user.username + '</strong>' + user.city + '</p><span>' + user.content + '</span></div></div>');
+                                };
+                            }
+                        })
+                        */
+        </script>
     </div>
 </div>
 
 
 <!-- COMPANY -->
 
-<section class="company">
+<section class="company" id="company">
     <div class="container">
         <!-- HEADER -->
 
@@ -334,9 +330,9 @@
                     <span class="card-company__text-check"></span>
                     <p class="card-company__text-lorem">
                         Микрофинансовая компания
-                        TEZ AQSHA предлагает своим
+                        TEZ CREDIT, работающая под брендом TEZ AQSHA, предлагает своим
                         клиентам быстрое рассмотрение
-                        заявок и выдачу денег
+                        заявок и выдачу денег в Казахстане
                     </p>
                 </div>
             </div>
@@ -361,7 +357,7 @@
                     <span class="card-company__text-check"></span>
                     <p class="card-company__text-lorem">
                         Для получения займа в TEZ
-                        AQSHA необходимо иметь при
+                        CREDIT необходимо иметь при
                         cебе удостоверение личности
                         и прийти в одно из
                         <span class="card-company__text-red">
@@ -425,10 +421,10 @@
                         Более подробные условия клиент всегда
                         может уточнить позвонив на горячую линию
                         <strong class="card-company__text-lorem card-company__text-red">
-                            8 800 080 71 71
+                            <a href="tel:88000807171">8 800 080 71 71</a>
                         </strong>
                         или же прочитав
-                        <a href="#" class="card-company__text-lorem card-company__text-red">
+                        <a href="https://tezlombard.kz/media/Pravila_МК_МФО_TEZ_CREDIT.pdf" class="card-company__text-lorem card-company__text-red" target="_blank">
                             правила предоставления микрокредитов
                         </a>
                     </p>
@@ -445,16 +441,16 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="footer__item col-xl-4 col-12 col-lg-4">
+            <div class="footer__item col-12 col-md-4 mb-3">
                 <img class="footer__img-logo" src="./src/img/logo.png" alt="logo">
-                <span>@ 2020 TEZ AQSHA</span>
+                <span>@ 2021 TEZ AQSHA</span>
             </div>
 
-            <div class="footer__item call col-xl-4 col-12 col-lg-4">
+            <div class="footer__item call col-12 col-md-4 mb-3">
                 <img src="./src/img/call.png" alt="call">
                 <div class="text">
                     <p class="text__number">
-                        8 800 080 71 71
+                        <a href="tel:88000807171">8 800 080 71 71</a>
                     </p>
                     <p class="text__lorem">
                         <strong>call-center / </strong>
@@ -463,25 +459,30 @@
                 </div>
             </div>
 
-            <div class="footer__item footer__item-list col-xl-4 col-12 col-lg-4">
+            <div class="footer__item footer__item-list col-12 col-md-4">
                 <ul class="list">
                     <li class="list__item">
-                        <a href="#">
+                        <a href="https://tezlombard.kz/media/Pravila_МК_МФО_TEZ_CREDIT.pdf" target="_blank">
                             Правила предоставления микрозаймов
                         </a>
                     </li>
                     <li class="list__item list__item-blue">
-                        <a href="#">
+                        <a href="#calcul">
                             Калькулятор займа
                         </a>
                     </li>
                     <li class="list__item">
-                        <a href="#">
+                        <a href="#about">
                             Отзывы клиентов
                         </a>
                     </li>
-                    <li class="list__item">
+                    <li class="list__item" id="make_review">
                         <a href="#">
+                            Оставить отзыв
+                        </a>
+                    </li>
+                    <li class="list__item">
+                        <a href="#company">
                             О компании
                         </a>
                     </li>
@@ -494,17 +495,20 @@
 
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
 <script src="./src/slick/slick.min.js"></script>
-<script defer src="./src/script.js"></script>
+<script src="./src/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script>
 
-    const loginURL = "http://app.tezlombard.kz/auth/loginApi/";
-    const smsSendURL = 'http://app.tezlombard.kz/auth/sendSmsApi/';
-    const smsConfirmURL = 'http://app.tezlombard.kz/auth/confirmApi/';
-    const restoreURL = 'http://app.tezlombard.kz/auth/recovery/';
-    const tokenURL = 'http://app.tezlombard.kz?tokenApp=';
+    const loginURL = "https://app.tezlombard.kz/auth/loginApi/";
+    const smsSendURL = 'https://app.tezlombard.kz/auth/sendSmsApi/';
+    const smsConfirmURL = 'https://app.tezlombard.kz/auth/confirmApi/';
+    const restoreURL = 'https://app.tezlombard.kz/auth/recovery/';
+    const tokenURL = 'https://app.tezlombard.kz?tokenApp=';
+    const getCitiesURL = 'https://tezlombard.kz/api/public/all-city-location';
+    const createCommentURL = "https://tezlombard.kz/api/public/createComment";
+    const calculatorURL = "https://tezlombard.kz/api/public/calculate";
     $('#button-take').click(function() {
         $('#modal-auth-select').modal();
     });
@@ -522,6 +526,14 @@
 
     $('#auth-login-button').click(function() {
         $('#modal-auth-login').modal();
+        if (localStorage.checkboxVal) {
+            $('#login').val(localStorage.loginTez);
+            $('#password').val(localStorage.passTez);
+        }
+    });
+
+    $('#make_review').click(function () {
+        $('#modal-feedback').modal();
     });
 
     $('#auth-phone-button').click(function() {
@@ -540,13 +552,17 @@
                 app_name: "aqsha"
             },
             success: function (data, status, jqXHR) {
+                if ($('#checkbox-remember').is(':checked')) {
+                    localStorage.setItem('checkboxVal', true);
+                    localStorage.setItem('loginTez', $('#login').val());
+                    localStorage.setItem('passTez', $('#password').val());
+                }
                 window.location.href = tokenURL + data.token_app;
             },
             error: function (jqXHR, status, error) {
                 $('#modal-auth-error').modal({
                     closeExisting: false
                 })
-
             }
         });
     });
@@ -615,22 +631,251 @@
                 setTimeout(function() {$('#modal-auth-login').modal()}, 4000);
             },
             error: function (jqXHR, status, error) {
+
                 $('#modal-auth-sms-fail').modal({
                     closeExisting: false
                 })
-
             }
         });
     });
 
+    $('#modal-sent-review').click(function() {
+        const name = $('#review-name').val();
+        const city = $('#review-city').val();
+        const text = $('#review-text').val();
+        $.ajax({
+            url: createCommentURL,
+            method: "POST",
+            data: {
+                username: name,
+                cityId: parseInt(city),
+                content: text,
+                isPublic: false,
+                isRead: false,
+                project: "tezAqsha",
+                avatar: "",
+                app_name: "aqsha"
+            },
+            success: function (data, status, jqXHR) {
+                $('#modal-review-win').modal();
+            },
+            error: function (jqXHR, status, error) {
+
+                $('#modal-review-fail').modal({
+                    closeExisting: false
+                })
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(
+        function() {
+            $( "#money_slider" ).slider({
+                range: "max",
+                min: 1000,
+                max: 100000,
+                value: 500,
+                step: 500,
+                create: function (event, ui) {
+                    $( "#moneyVal" ).html( ui.value );
+                    $.ajax({
+                        url: calculatorURL,
+                        method: "POST",
+                        data: {
+                            creditSum: parseInt($('#moneyVal').html()),
+                            creditPeriod: parseInt($('#periodVal').html()),
+                            app_name: "aqsha"
+                        },
+                        success: function (data, status, jqXHR) {
+                            $('#totalSum').html(data.data.totalSum);
+                            let date = data.data.returnDate.split('.');
+                            let returnDate = new Date(date[2], date[1] - 1, date[0]);
+                            let options = {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                weekday: 'long'
+                            };
+                            $('#returnDate').html(returnDate.toLocaleString("ru", options));
+                        },
+                        error: function (jqXHR, status, error) {
+
+                            $('#modal-calc-fail').modal({
+                                closeExisting: false
+                            })
+                        }
+                    });
+                },
+                slide: function ( event, ui ) {
+                    $( "#moneyVal" ).html( ui.value );
+                },
+                change: function( event, ui ) {
+                    $( "#moneyVal" ).html( ui.value );
+                    $.ajax({
+                        url: calculatorURL,
+                        method: "POST",
+                        data: {
+                            creditSum: parseInt($('#moneyVal').html()),
+                            creditPeriod: parseInt($('#periodVal').html()),
+                            app_name: "aqsha"
+                        },
+                        success: function (data, status, jqXHR) {
+                            $('#totalSum').html(data.data.totalSum);
+                            let date = data.data.returnDate.split('.');
+                            let returnDate = new Date(date[2], date[1] - 1, date[0]);
+                            let options = {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                weekday: 'long'
+                            };
+                            $('#returnDate').html(returnDate.toLocaleString("ru", options));
+                        },
+                        error: function (jqXHR, status, error) {
+
+                            $('#modal-calc-fail').modal({
+                                closeExisting: false
+                            })
+                        }
+                    });
+
+                }
+            });
+            $( "#period_slider" ).slider({
+                range: "max",
+                min: 15,
+                max: 30,
+                value: 15,
+                step: 15,
+                create: function (event, ui) {
+                    /*
+                    console.log(ui);
+                    let days = "";
+                    let lastNum = ui.value.length;
+                    ui.value[lastNum] === 1 ? days = 'день' : ui.value[lastNum] === 2 ? days = 'дня' : days = дней;
+                     */
+                    $( "#periodVal" ).html( ui.value );
+                    $.ajax({
+                        url: calculatorURL,
+                        method: "POST",
+                        data: {
+                            creditSum: parseInt($('#moneyVal').html()),
+                            creditPeriod: parseInt($('#periodVal').html()),
+                            app_name: "aqsha"
+                        },
+                        success: function (data, status, jqXHR) {
+                            $('#totalSum').html(data.data.totalSum);
+                            let date = data.data.returnDate.split('.');
+                            let returnDate = new Date(date[2], date[1] - 1, date[0]);
+                            let options = {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                weekday: 'long'
+                            };
+                            $('#returnDate').html(returnDate.toLocaleString("ru", options));
+                        },
+                        error: function (jqXHR, status, error) {
+
+                            $('#modal-calc-fail').modal({
+                                closeExisting: false
+                            })
+                        }
+                    });
+                },
+                slide: function ( event, ui ) {
+                    let days = "";
+                    let single = ['1', '21', '31', '41', '51'];
+                    let double = ['2', '3', '4', '22', '23', '24', '32', '33', '34', '42', '43', '44', '52', '53', '54'];
+                    if (single.includes(ui.value.toString())) {
+                        days = " день";
+                    } else if (double.includes(ui.value.toString())) {
+                        days = " дня";
+                    } else {
+                        days = " дней";
+                    };
+                    $( "#periodVal" ).html( ui.value + days);
+                },
+                change: function( event, ui ) {
+                    let days = "";
+                    let single = ['1', '21', '31', '41', '51'];
+                    let double = ['2', '3', '4', '22', '23', '24', '32', '33', '34', '42', '43', '44', '52', '53', '54'];
+                    if (single.includes(ui.value.toString())) {
+                        days = " день";
+                    } else if (double.includes(ui.value.toString())) {
+                        days = " дня";
+                    } else {
+                        days = " дней";
+                    };
+                    $( "#periodVal" ).html( ui.value + days);
+                    $.ajax({
+                        url: calculatorURL,
+                        method: "POST",
+                        data: {
+                            creditSum: parseInt($('#moneyVal').html()),
+                            creditPeriod: parseInt($('#periodVal').html()),
+                            app_name: "aqsha"
+                        },
+                        success: function (data, status, jqXHR) {
+                            $('#totalSum').html(data.data.totalSum);
+                            let date = data.data.returnDate.split('.');
+                            let returnDate = new Date(date[2], date[1] - 1, date[0]);
+                            let options = {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                weekday: 'long'
+                            };
+                            $('#returnDate').html(returnDate.toLocaleString("ru", options));
+                        },
+                        error: function (jqXHR, status, error) {
+
+                            $('#modal-calc-fail').modal({
+                                closeExisting: false
+                            })
+                        }
+                    });
+
+                }
+            });
+            //    $( "#moneyVal" ).html( $( "#money_slider" ).slider( "value" ) + ' тенге');
+        });
+</script>
+<script>
+
+    $('#money_slider_plus').click(function () {
+        let newVal = parseInt($('#moneyVal').html())
+        $('#money_slider').slider('option', 'value', newVal + 500)
+    });
+    $('#money_slider_minus').click(function () {
+        let newVal = parseInt($('#moneyVal').html())
+        $('#money_slider').slider('option', 'value', newVal - 500)
+    });
+    $('#period_slider_plus').click(function () {
+        let newVal = parseInt($('#periodVal').html())
+        $('#period_slider').slider('option', 'value', newVal + 15)
+    });
+    $('#period_slider_minus').click(function () {
+        let newVal = parseInt($('#periodVal').html())
+        $('#period_slider').slider('option', 'value', newVal - 15)
+    });
 
     function closeWindow() {
         $('#modal-auth-sms').css('display', 'none');
         $('#modal-auth-sms-restore').css('display', 'none');
         $('.blocker').css('display', 'none');
     }
-
 </script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+
+
+
+
+<div id="slider-range-max"></div>
 </body>
 
 </html>

@@ -9,6 +9,11 @@ gulp.task('sass', function () {
 .pipe(gulp.dest('./public/css'))
 })
 
+gulp.task('pref', function () {
+    return gulp.src('./public/css').pipe(autoprefixer()).pipe(cleanCSS())
+        .pipe(gulp.dest('./public/css/1'))
+})
+
 gulp.task('watch', function () {
     gulp.watch('./**/*.scss', gulp.series('sass'))
 });
